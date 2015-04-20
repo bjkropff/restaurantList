@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang= "en" ng-app="BestRest">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8"> -->
+        <script src="lib/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="js/restaurantController.js"></script>
+
+        <title>Best Restaurant</title>
+    </head>
+    <body>
+        <div class="container" ng-controller="RestCtrl">
+            <h1>Best Restaurant</h1>
+            <input type="text" ng-model="query" placeholder="Find a Restaurant">
+
+
+            <form ng-submit="addRestaurant()">
+                <label for="restaurantName">Restaurant Name </label>
+                <input type="text" ng-model="restaurantName">
+
+                <label for="restaurantPrice">Restaurant Price</label>
+                <input type="text" ng-model="restaurantPrice">
+
+                <label for="restaurantType">Restaurant Type</label>
+                <input type="text" ng-model="restaurantType">
+                <button class ="btn">Go!</button>
+            </form>
+            <ul>
+                <li ng-repeat="element in restaurant | filter:query">
+                {{ element.name }} {{ element.price }} {{ element.type }} <a ng-click="deleteRestaurant(element)">Delete</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
