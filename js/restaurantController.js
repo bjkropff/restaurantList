@@ -4,13 +4,9 @@ BestRest.controller("RestCtrl", function RestCtrl($scope) {
         $scope.restaurant.push
     ({
         name: $scope.restaurantName,
-        price: $scope.restaurantPrice,
-        type: $scope.restaurantType
     })
 
     $scope.restaurantName = null;
-    $scope.restaurantPrice = null;
-    $scope.restaurantType = null;
     },
 
 
